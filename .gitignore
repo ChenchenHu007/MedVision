@@ -134,3 +134,4 @@ test/*/*.jpg
 test/*/*.gif
 test/*/*.png
 test/*/*.nii.gz
+.DS_Store

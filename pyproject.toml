@@ -1,0 +1,11 @@
+[project]
+name = "medvision"
+version = "0.1.0"
+dependencies = [
+    "numpy",
+    "setuptools",
+    "torch>=2.2.0",
+    "scikit-image",
+    "SimpleITK",
+    "opencv-python"
+]

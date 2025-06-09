@@ -31,11 +31,9 @@ def get_extensions():
     extensions_dir = os.path.join(this_dir, 'medvision', 'csrc')
 
     main_file = glob.glob(os.path.join(extensions_dir, '*.cpp'))
-    source_cpu = glob.glob(os.path.join(extensions_dir, 'cpu', '*.cpp'))
     source_cuda = glob.glob(os.path.join(extensions_dir, 'cuda', '*.cu'))
-    source_cuda += glob.glob(os.path.join(extensions_dir, 'cuda_aug', '*.cu'))
 
-    sources = main_file + source_cpu
+    sources = main_file
     extension = CppExtension
 
     define_macros = []
