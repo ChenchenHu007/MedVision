@@ -19,7 +19,7 @@ import numpy as np
 from skimage import io
 from skimage.util import img_as_float32
 
-from torchvision.ops import RoIAlign as RoIAlignTorchvision
+# from torchvision.ops import RoIAlign as RoIAlignTorchvision
 
 # 2d is exactly the same with RoIAlignTorchvision
 from medvision.ops import RoIAlign

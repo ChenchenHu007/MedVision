@@ -1,6 +1,31 @@
+[build-system]
+requires = ["setuptools", "numpy>=2.2.6,<3", "torch>=2.7.0,<3",]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "medvision"
-version = "0.1.0"
+version = "0.0.4"
+description = "Medical Image Vision"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+
+authors = [
+    { name="timothy", email="thyzyfx@qq.com" },
+    { name="qiaoyf", email="qyyyyyf@gmail.com" },
+]
+
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+
+urls = { "Homepage" = "https://github.com/TimothyZero/MedVision" }
+
+keywords = ["Medical Image", "Vision"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: linux-64",
+]
+
 dependencies = [
     "numpy",
     "setuptools",
@@ -9,3 +34,6 @@ dependencies = [
     "SimpleITK",
     "opencv-python"
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]

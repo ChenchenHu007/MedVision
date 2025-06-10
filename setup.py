@@ -27,7 +27,7 @@ def print_compile_env():
 
 
 def get_extensions():
-    this_dir = os.path.dirname(os.path.abspath(__file__))
+    this_dir = os.path.dirname(os.path.relpath(__file__))
     extensions_dir = os.path.join(this_dir, 'medvision', 'csrc')
 
     main_file = glob.glob(os.path.join(extensions_dir, '*.cpp'))
@@ -53,8 +53,6 @@ def get_extensions():
             'nvcc': nvcc_flags,
         }
 
-    sources = [os.path.join(extensions_dir, s) for s in sources]
-
     include_dirs = [extensions_dir, numpy.get_include()]
 
     ext_modules = [
@@ -76,27 +74,8 @@ def get_extensions():
 if __name__ == "__main__":
     print_compile_env()
 
-    with open("README.md", "r", encoding='utf-8') as fh:
-        long_description = fh.read()
-
     setup(
-        name='medvision',
-        version='0.0.4',
-        author="timothy, qiaoyf",
-        author_email="thyzyfx@qq.com, qyyyyyf@gmail.com",
-        description='Medical Image Vision',
-        keywords='Medical Image, Vision',
-        long_description=long_description,
-        long_description_content_type="text/markdown",
-        url='https://github.com/TimothyZero/MedVision',
-        license='Apache License 2.0',
-        packages=setuptools.find_packages('.'),
         ext_modules=get_extensions(),
         cmdclass={'build_ext': cpp_extension.BuildExtension},
-        classifiers=[
-            "Programming Language :: Python :: 3",
-            "License :: OSI Approved :: Apache Software License",
-            "Operating System :: OS Independent",
-        ],
-        zip_safe=True,
+        zip_safe=False,
     )
